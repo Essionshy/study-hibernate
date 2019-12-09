@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-5 17:16:39 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.tingyu.hibernate.entity.News" table="NEWS">
+    	<cache usage="read-write"/>
+    	
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <property name="gmtCreate" type="java.util.Date">
+            <column name="GMTCREATE" />
+        </property>
+        <property name="gmtModified" type="java.util.Date">
+            <column name="GMTMODIFIED" />
+        </property>
+    </class>
+    
+    <query name="selectNewsByAuthor"><![CDATA[
+    	FROM News n WHERE n.author like :author    
+    ]]></query>
+</hibernate-mapping>

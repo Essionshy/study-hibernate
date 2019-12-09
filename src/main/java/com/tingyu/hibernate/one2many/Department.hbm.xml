@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-3 15:40:02 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.tingyu.hibernate.one2many">
+    <class name="Department" table="hb_department">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="CODE" />
+        </property>
+        <set name="employees" table="hb_employee" >
+            <key>
+                <column name="DEPARTMENT_ID" />
+            </key>
+            <one-to-many class="Employee" />
+        </set>
+    </class>
+</hibernate-mapping>
